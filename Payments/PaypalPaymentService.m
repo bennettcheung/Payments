@@ -1,16 +1,16 @@
 //
-//  PaymentGateway.m
+//  PaypalPaymentService.m
 //  Payments
 //
 //  Created by Bennett on 2018-08-03.
 //  Copyright © 2018 Bennett. All rights reserved.
 //
 
-#import "PaymentGateway.h"
+#import "PaypalPaymentService.h"
 
-@implementation PaymentGateway
+@implementation PaypalPaymentService
 
 -(void)processPaymentAmount:(NSInteger)amount{
-    [self.paymentDelegate processPaymentAmount:amount];
+    NSLog(@"Paypalpaymenservice");
 }
 @end

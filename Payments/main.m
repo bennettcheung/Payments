@@ -8,10 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "PaymentGateway.h"
+#import "PaypalPaymentService.h"
+#import "StripePaymentService.h"
+#import "AmazonPaymentService.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         int dollarValue = arc4random_uniform(900)+100;
+        
         
         NSLog(@"Thank you for shopping at Acme.com Your total today is $%i Please select your payment method: 1: Paypal, 2: Stripe, 3: Amazon", dollarValue);
         
@@ -22,7 +26,37 @@ int main(int argc, const char * argv[]) {
         int choice = atoi(input);
         
         PaymentGateway *gateway = [[PaymentGateway alloc]init];
-        [gateway processPaymentAmount:[NSNumber numberWithInt:dollarValue]];
+        
+        switch (choice) {
+            case 1:
+            {
+                PaypalPaymentService *paypal = [[PaypalPaymentService alloc]init];
+                gateway.paymentDelegate = paypal;
+                NSInteger nAmount = dollarValue;
+                [gateway processPaymentAmount: nAmount];
+                break;
+            }
+            case 2:
+            {
+                StripePaymentService *stripe = [[StripePaymentService alloc]init];
+                gateway.paymentDelegate = stripe;
+                NSInteger nAmount = dollarValue;
+                [gateway processPaymentAmount: nAmount];
+                break;
+            }
+            case 3:
+            {
+                AmazonPaymentService *amazon = [[AmazonPaymentService alloc]init];
+                gateway.paymentDelegate = amazon;
+                NSInteger nAmount = dollarValue;
+                [gateway processPaymentAmount: nAmount];
+                break;
+            }
+            
+            default:
+                break;
+        }
+
         
     }
     return 0;

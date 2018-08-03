@@ -1,16 +1,15 @@
 //
-//  PaymentGateway.m
+//  AmazonPaymentService.m
 //  Payments
 //
 //  Created by Bennett on 2018-08-03.
 //  Copyright © 2018 Bennett. All rights reserved.
 //
 
-#import "PaymentGateway.h"
+#import "AmazonPaymentService.h"
 
-@implementation PaymentGateway
-
+@implementation AmazonPaymentService
 -(void)processPaymentAmount:(NSInteger)amount{
-    [self.paymentDelegate processPaymentAmount:amount];
+    NSLog(@"Amazonpaymenservice");
 }
 @end
