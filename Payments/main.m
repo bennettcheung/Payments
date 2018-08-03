@@ -10,8 +10,15 @@
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+        int dollarValue = arc4random_uniform(900)+100;
+        
+        NSLog(@"Thank you for shopping at Acme.com Your total today is $%i Please select your payment method: 1: Paypal, 2: Stripe, 3: Amazon", dollarValue);
+        
+        char input[255];
+        fgets(input, 255, stdin);
+        
+        int choice = atoi(input);
+        
     }
     return 0;
 }
