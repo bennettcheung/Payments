@@ -18,7 +18,7 @@
 
 @interface PaymentGateway : NSObject
 
-@property (nonatomic, weak) id paymentDelegate;
+@property (nonatomic, strong) id paymentDelegate;
 
 -(void)processPaymentAmount:(NSInteger)amount;
 @end

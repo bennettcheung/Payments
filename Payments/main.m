@@ -33,38 +33,31 @@ int main(int argc, const char * argv[]) {
             {
                 PaypalPaymentService *paypal = [[PaypalPaymentService alloc]init];
                 gateway.paymentDelegate = paypal;
-                NSInteger nAmount = dollarValue;
-                [gateway processPaymentAmount: nAmount];
                 break;
             }
             case 2:
             {
                 StripePaymentService *stripe = [[StripePaymentService alloc]init];
                 gateway.paymentDelegate = stripe;
-                NSInteger nAmount = dollarValue;
-                [gateway processPaymentAmount: nAmount];
                 break;
             }
             case 3:
             {
                 AmazonPaymentService *amazon = [[AmazonPaymentService alloc]init];
                 gateway.paymentDelegate = amazon;
-                NSInteger nAmount = dollarValue;
-                [gateway processPaymentAmount: nAmount];
                 break;
             }
             case 4:
             {
                 ApplePaymentService *apple = [[ApplePaymentService alloc]init];
                 gateway.paymentDelegate = apple;
-                NSInteger nAmount = dollarValue;
-                [gateway processPaymentAmount: nAmount];
                 break;
             }
             default:
                 break;
         }
-
+        NSInteger nAmount = dollarValue;
+        [gateway processPaymentAmount: nAmount];
         
     }
     return 0;
