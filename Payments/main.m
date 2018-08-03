@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PaymentGateway.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -17,7 +18,11 @@ int main(int argc, const char * argv[]) {
         char input[255];
         fgets(input, 255, stdin);
         
+
         int choice = atoi(input);
+        
+        PaymentGateway *gateway = [[PaymentGateway alloc]init];
+        [gateway processPaymentAmount:[NSNumber numberWithInt:dollarValue]];
         
     }
     return 0;
