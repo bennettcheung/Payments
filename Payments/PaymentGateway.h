@@ -11,6 +11,7 @@
 @protocol PaymentDelegate
 
 -(void)processPaymentAmount:(NSInteger)amount;
+-(BOOL)canProcessPayment;
 @end
 
 
